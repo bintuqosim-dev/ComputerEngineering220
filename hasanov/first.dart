@@ -1,1 +1,3 @@
-class OOP{}
+class OOP{
+  String name;
+}
