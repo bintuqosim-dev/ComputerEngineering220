@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class Dog {
+    var wight: Int = 0
+}
