@@ -1,0 +1,52 @@
+import 'package:barber/home/data/barber.dart';
+import 'package:barber/ui/svgs/app_svgs.dart';
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
+
+@injectable
+class HomeRepository {
+  List<Barber> barbers = [
+    Barber(
+      barberName: 'Sarah Smith',
+      barberImageName: 'assets/images/avatar.png',
+      employment: 'Available now',
+      iconImageName: AppSvgs.edit,
+      numberOfCustomers: 2,
+      workTime: 30,
+    ),
+    Barber(
+      barberName: 'Sarah Smith',
+      barberImageName: 'assets/images/avatar.png',
+      employment: 'Available now',
+      iconImageName: AppSvgs.edit,
+      numberOfCustomers: 2,
+      workTime: 30,
+    ),
+    Barber(
+      barberName: 'Sarah Smith',
+      barberImageName: 'assets/images/avatar.png',
+      employment: 'Available now',
+      iconImageName: AppSvgs.edit,
+      numberOfCustomers: 2,
+      workTime: 30,
+    ),
+    Barber(
+      barberName: 'Sarah Smith',
+      barberImageName: 'assets/images/avatar.png',
+      employment: 'Available now',
+      iconImageName: AppSvgs.edit,
+      numberOfCustomers: 2,
+      workTime: 30,
+    )
+  ];
+  Future<Either<String, List<Barber>>> getBarbers() async {
+    try {
+      await Future.delayed(const Duration(seconds: 3));
+
+      // throw Exception();
+      return right(barbers);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+}
