@@ -1,0 +1,30 @@
+#include <iostream>
+#include <thread>
+#include <chrono> 
+using namespace std;
+
+int square(int n) {
+    cout << "Kvadratni hisoblash: " << n << "^2" << endl;
+    this_thread::sleep_for(chrono::seconds(2));
+    return n * n;
+}
+
+int cube(int n) {
+    cout << "Kubni hisoblash: " << n << "^3" << endl;
+    this_thread::sleep_for(chrono::seconds(2));
+    return n * n * n;
+}
+
+int main() {
+    int num = 5;
+
+    thread t1([&](){ return square(num); });
+    thread t2([&](){ return cube(num); });
+
+    t1.join(); 
+    t2.join(); 
+
+    cout << "Kvadrat va kubni hisoblash tugadi." << endl;
+
+    return 0;
+}
